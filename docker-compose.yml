@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    env_file: .env
+    environment:
+      DATABASE_URL: sqlite:////data/app.db
+    ports:
+      - "8000:8000"
+    volumes:
+      - appdata:/data   # SQLite file + LiteLLM disk cache survive restarts
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ${API_URL:-http://localhost:8000}
+    environment:
+      API_URL: ${API_URL:-http://localhost:8000}
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  appdata:
