@@ -34,7 +34,7 @@ class Settings:
     cache_dir: str = ""
     request_timeout: float = 20.0
     max_tokens: int = 1024
-    reasoning_effort: str = "low"  # minimal | low | medium | high | disable | "" (provider default)
+    reasoning_effort: str = ""  # minimal | low | medium | high | disable | "" (provider default)
     max_history_messages: int = 50
     mock_llm: bool = False  # tests only: skip the network, return a canned reply
 
@@ -56,7 +56,7 @@ class Settings:
             cache_dir=env.get("CACHE_DIR", ""),
             request_timeout=float(env.get("REQUEST_TIMEOUT_SECONDS", "20")),
             max_tokens=int(env.get("MAX_TOKENS", "1024")),
-            reasoning_effort=env.get("REASONING_EFFORT", "low").strip().lower(),
+            reasoning_effort=env.get("REASONING_EFFORT", "").strip().lower(),
             max_history_messages=int(env.get("MAX_HISTORY_MESSAGES", "50")),
             mock_llm=_as_bool(env.get("MOCK_LLM")),
         )
