@@ -10,7 +10,7 @@ Every assistant reply shows its own metadata: resolution source, model, latency,
 | Frontend (Vercel) | https://aichatbot-two-beta.vercel.app |
 | Backend (Render) | https://ai-chat-bot-9pnb.onrender.com (try [`/health`](https://ai-chat-bot-9pnb.onrender.com/health)) |
 | GitHub | https://github.com/Abhay-code112/AI-CHAT-BOT |
-| Demo video | `<paste your video link here>` |
+| Demo video | https://drive.google.com/drive/folders/1c6bEeWrzyogqso_8PbioZSBJfJHCHnKW?usp=sharing |
 
 > **Cold start:** the backend runs on Render's free tier, which sleeps after about 15 minutes without traffic. The first request after a sleep can take 50 seconds or more. Open `/health` once and wait for `{"status":"ok", ...}` before testing.
 >
@@ -184,7 +184,7 @@ multi-turn memory, history endpoint, 422 validation, malformed JSON, and CORS.
 ## 5. Setup Used
 
 - Editor: VS Code
-- AI tools: Claude (Anthropic) for scaffolding the backend, tests, Docker setup and deployment guidance; all code was reviewed and run locally before deploying.
+- AI tools: Claude (Anthropic) for scaffolding the backend, tests and Docker setup; all code was reviewed and run locally before deploying.
 - Pinned stack: Python 3.12, FastAPI, LiteLLM 1.74.9, React 18 + Vite 5, react-markdown 9.0.1, nginx for static serving.
 - Model: `gemini/gemini-3.5-flash-lite` through a pool of two Gemini API keys.
 - Hosting: Render (backend, Docker) and Vercel (frontend).
